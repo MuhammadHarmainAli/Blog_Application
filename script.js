@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const userRouter = require("./routes/user");
@@ -13,6 +14,7 @@ connectDB(process.env.MONGO_URL);
 const app = express();
 const PORT = process.env.PORT;
 
+app.set("view", path.join(_dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 

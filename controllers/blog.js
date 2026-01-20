@@ -2,7 +2,7 @@ const Blog = require("../models/blog")
 const Comment = require("../models/comment")
 
 const handleCreateBlogPage = (req, res) => {
-    return res.render("addblog", { user: req.user });
+    return res.render("addBlog", { user: req.user });
 }
 
 const handleCreateBlog = async (req, res) => {
