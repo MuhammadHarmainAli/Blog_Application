@@ -14,7 +14,7 @@ connectDB(process.env.MONGO_URL);
 const app = express();
 const PORT = process.env.PORT;
 
-app.set("view", path.join(_dirname, "views"));
+app.set("view", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
