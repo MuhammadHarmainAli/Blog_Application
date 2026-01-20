@@ -1,0 +1,54 @@
+<nav style="border-bottom: 1px solid rgba(220, 220, 220, 0.445); position: fixed; width: 100%; top: 0; z-index: 99;">
+    <div
+        style="background-color: rgba(255, 255, 255, 0.534); width: 83%; backdrop-filter: blur(6px); margin: auto; padding-block: 14px; padding-inline: 30px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-weight: 700; display: flex; align-items: end; gap: 2px;">
+            <h2>Blogify</h2>
+            <div
+                style="width: 3px; height: 3px; border: 1.5px solid black; position: relative; bottom: 8px; background-color: black; right: 2px;">
+            </div>
+            <div
+                style="width: 3px; height: 3px; border: 1.5px solid black; position: relative; bottom: 8px; background-color: black; right: 2px;">
+            </div>
+        </div>
+        <div style="display: flex; gap: 40px; font-size: 13px; align-items: center; text-transform: capitalize;">
+            <ul style="display: flex; gap: 30px; align-items: center;">
+                <li
+                    style="cursor: pointer; padding-inline: 16px; padding-block: 7px; background-color: rgb(27, 27, 27); color: white; border-radius: 50px;">
+                    <a href="/">home</a>
+                </li>
+                <li style="cursor: pointer;"><a href="/about">about</a></li>
+                <li style="cursor: pointer;"><a href="/contact">contact</a></li>
+                <li style="cursor: pointer;"><a href="/blog">blogs</a></li>
+            </ul>
+
+            <div style="display: flex; gap: 10px;">
+                <% if (locals.user) { %>
+                    <div style="position: relative;">
+                        <div class="profile-image"
+                            style="display: flex; border-radius: 50%; overflow: hidden; padding: 4px;">
+                            <img width="30px" height="30px" style="border-radius: 50%; cursor: pointer;"
+                                src="<%= user.profileImageURL %>" alt="profile-image">
+                        </div>
+                        <div
+                            style="cursor: pointer; border: 1px solid rgba(0, 0, 0, 0.250); border-radius: 7px; backdrop-filter: blur(20px); position: absolute; width: 120px; right: 10px; bottom: -29px; padding-inline: 8px; padding-block: 4px;">
+                            <a href="/signout">
+                                <div class="signout-btn"
+                                    style="padding-block: 2px; border-radius: 6px; padding-inline: 8px; display: flex; align-items: center; justify-content: space-between;">
+                                    <span>Sign out</span> <i style="font-size: 16px;" class="ri-logout-box-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% } else { %>
+                        <button
+                            style="cursor: pointer; font-size: 13px; border-radius: 8px; padding-inline: 10px; padding-block: 3px; border: 1px solid oklch(.708 0 0); font-weight: 500; background-color: white;"><a
+                                href="/signup">Sign up</a></button>
+
+                        <button
+                            style="cursor: pointer; font-size: 13px; border-radius: 8px; padding-inline: 10px; padding-block: 3px; border: 1px solid black; font-weight: 500; background-color: rgb(27, 27, 27); color: white;"><a
+                                href="/signin">Sign in</a></button>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+        <title>Sign up Page</title>
+</head>
+
+<body>
+
+    <div
+        style="background-color: rgb(248, 248, 248); width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <div
+            style="padding: 25px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295); background-color: white; width: 450px; margin: auto; border: 1px solid rgba(0, 0, 0, 0.13); border-radius: 10px;">
+            <div style="text-align: center;">
+                <span style="font-size: 15px;">Create an account</h3>
+                    <p style="color: oklch(44.6% 0.03 256.802); font-weight: 300; margin-top: 5px;">Enter your
+                        information to get started
+                    </p>
+            </div>
+            <form action="/signup" method="post" autocomplete="off" style="margin-top: 20px;">
+                <div>
+                    <label style="font-size: 14px; font-weight: 500;">Full Name</label>
+                    <div style="margin-top: 2px;">
+                        <input type="text" name="fullName"
+                            style="width: 100%; padding-block: 6px; padding-inline: 14px; border: none; border-radius: 6px; background-color: #F3F3F5;"
+                            placeholder="John Doe" autocomplete="new-name">
+                    </div>
+                </div>
+                <div style="margin-top: 8px;">
+                    <label style="font-size: 14px; font-weight: 500;">Email</label>
+                    <div style="margin-top: 2px;">
+                        <input type="email" name="email"
+                            style="width: 100%; padding-block: 6px; padding-inline: 14px; border: none; border-radius: 6px; background-color: #F3F3F5;"
+                            placeholder="you@example.com" autocomplete="new-email">
+                    </div>
+                </div>
+                <div style="margin-top: 8px;">
+                    <label style="font-size: 14px; font-weight: 500;">Password</label>
+                    <div style="margin-top: 2px;">
+                        <input type="password" name="password" class="input-field"
+                            style="width: 100%; padding-block: 6px; padding-inline: 14px; border: none; border-radius: 6px; background-color: #F3F3F5;"
+                            placeholder="........." autocomplete="new-password">
+                    </div>
+                </div>
+                <button type="submit"
+                    style="width: 100%; margin-top: 17px; cursor: pointer; font-size: 14px; border-radius: 8px; padding-block: 7px; border: 1px solid black; font-weight: 500; background-color: rgb(27, 27, 27); color: white;">Create
+                    account</button>
+            </form>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-block: 14px;">
+                <div style="width: 33%; height: 1px; background-color: #0000002a;"></div>
+                <span style="font-size: 13px; color: oklch(44.6% 0.03 256.802);">OR CONTINUE WITH</span>
+                <div style="width: 33%; height: 1px; background-color: #0000002a;"></div>
+            </div>
+
+            <button type="submit"
+                style="width: 100%; cursor: pointer; font-size: 14px; border-radius: 8px; padding-block: 7px; border: 1px solid #0000002a; font-weight: 500; background-color: white;">Sign
+                up with Google</button>
+
+            <div style="text-align: center; font-size: 13px; margin-top: 22px;">
+                <span style="color: oklch(44.6% 0.03 256.802);">Already have an account? <a
+                        style="color: black; font-weight: 500;" href="/signin"> Log in</a></span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<% if (locals.user) { %>
+    <section style="width: 83%; margin: auto; margin-block: 100px;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="overflow: hidden; width: 90px; height: 90px;">
+                <img width="100%" src="<%= user.profileImageURL %>" alt="">
+            </div>
+            <h4 style="font-size: 16px; margin-top: 15px; font-weight: 500;">
+                <%= user.fullName %>
+            </h4>
+        </div>
+    </section>
+    <% } %>
+
+        <footer style="background-color: #F5F5F7;">
+            <div style="width: 83%; margin: auto;">
+                <div style="display: flex; font-size: 12px; padding-block: 40px;">
+                    <div style="flex: 3;">
+                        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 7px;">Blogify</h4>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">Your go-to source for the
+                            latest in
+                            technology, design, and programming. Join <br> our community of developers
+                            and designers.</p>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 7px;">Categories</h4>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">Technology</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">Design</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">Programming</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">AI & ML</p>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 7px;">Connect</h4>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">Twitter</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">LinkedIn</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">GitHub</p>
+                        <p style="margin-bottom: 7px; color: oklch(44.6% 0.03 256.802);">RSS Feed</p>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 12px;">
+                    <p style="padding-block: 25px; border-top: 1px solid #0000001a ; color: oklch(44.6% 0.03 256.802);">
+                        © 2024
+                        Blogify. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>

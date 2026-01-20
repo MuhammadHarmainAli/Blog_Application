@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+        <title>Read Blog</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs') %>
+
+        <section style="margin-top: 100px;">
+            <div style="display: flex; justify-content: space-between; width: 83%; margin: auto;">
+                <div style="width: 65%;">
+
+                    <a href="/" style="display: flex; align-items: center; gap: 6px;"><i
+                            style="font-size: 14px; position: relative; bottom: 1px;"
+                            class="ri-arrow-left-long-line"></i><span style="font-size: 13px;">Back to all
+                            posts</span></a>
+
+                    <div style="margin-top: 30px;">
+                        <div style="margin-bottom: 60px;">
+                            <div
+                                style="width: 100%; height: 380px; margin-bottom: 26px; overflow: hidden; border-radius: 20px;">
+                                <img width="100%" src="<%= blog.coverImage %>" alt="">
+                            </div>
+
+                            <span style="font-size: 14px; color: rgba(70, 62, 62, 0.747);">Jan 10, 2024 • 8 min
+                                read</span>
+
+                            <h3 style="font-size: 31px; line-height: 35px; margin-block: 20px; font-weight: 400;">
+                                <%= blog.blogTitle %>
+                            </h3>
+
+                            <div style="font-size: 15px; color: rgba(48, 44, 44, 0.774);">
+                                <pre><%= blog.blogContent %></pre>
+                            </div>
+
+                        </div>
+                        <div
+                            style="border-top: 1px solid #7575752f; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="margin-block: 28px;">
+                                <h5 style="font-weight: 400; margin-bottom: 5px; font-size: 16px;">Share this article
+                                </h5>
+                                <p style="font-size: 13px;">Found this helpful? Share it with others.</p>
+                            </div>
+                            <div style="display: flex; gap: 12px;">
+                                <a href="#"><button
+                                        style="padding-inline: 14px; padding-block: 6px; border-radius: 50px; border: none;">Twitter</button></a>
+                                <a href="#"><button
+                                        style="padding-inline: 14px; padding-block: 6px; border-radius: 50px; border: none;">LinkedIn</button></a>
+                                <a href="#"><button
+                                        style="padding-inline: 14px; padding-block: 6px; border-radius: 50px; border: none;">Copy</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="width: 30%;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <h2>Comment</h2>
+                        <span
+                            style="padding-inline: 12px; padding-block: 4px; font-weight: 600; font-size: 12px; border-radius: 50px; background-color: #ECEEF0;"><%= comments.length %></span>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <div style="display: flex; gap: 10px; align-items: center; font-size: 15px;">
+                            <div style="overflow: hidden; width: 30px; height: 30px; border-radius: 50%;">
+                                <img width="100%" src="<%= blog.createdBy?.profileImageURL %>" alt="">
+                            </div>
+                            <span style="position: relative; bottom: 2px;">
+                                <%= user.fullName %>
+                            </span>
+                        </div>
+                        <form action="/blog/comment/<%= blog._id %>" method="post" style="margin-top: 12px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <input type="text" name="content" placeholder="Add comment..."
+                                    style="font-size: 13px; width: 100%; padding-inline: 10px; padding-block: 3px; border: 1px solid black; border-radius: 8px;">
+                                <button type="submit"
+                                    style="cursor: pointer; font-size: 13px; border-radius: 8px; padding-inline: 10px; padding-block: 3px; color: white; border: 1px solid black; font-weight: 500; background-color: rgb(2, 2, 2);">Comment</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <% if (locals.comments) { %>
+                            <% comments.forEach(comment=> { %>
+                                <div
+                                    style="margin-block: 13px; display: flex; gap: 7px; align-items: start; font-size: 15px;">
+                                    <div
+                                        style="margin-top: 8px; overflow: hidden; width: 25px; height: 25px; border-radius: 50%;">
+                                        <img width="100%" src="<%= comment.createdBy?.profileImageURL %>" alt="">
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span style="font-size: 13px;">
+                                                <%= comment.createdBy?.fullName %>
+                                            </span>
+                                            <p style="font-size: 12px; color: rgba(31, 29, 29, 0.849)">
+                                                <%= comment.content %>
+                                            </p>
+                                        </div>
+                                        <div
+                                            style="margin-top: 5px; display: flex; align-items: center; gap: 14px;">
+                                            <span><i style="font-size: 13px;" class="ri-thumb-up-line"></i></span>
+                                            <span><i style="font-size: 13px;" class="ri-thumb-down-line"></i></span>
+                                            <p style="padding-left: 4px; font-size: 12px;">replay</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
