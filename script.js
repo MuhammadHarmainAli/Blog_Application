@@ -13,12 +13,16 @@ connectDB(process.env.MONGO_URL);
 
 const app = express();
 const PORT = process.env.PORT;
-
-app.set("view", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.static("public"));
 
+// Views directory set karo (default 'views')
+app.set("views", path.join(__dirname, "views"));
+
+// Body parser
 app.use(express.urlencoded({ extended: true }));
+
+// Static files
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(checkAuth);
 
